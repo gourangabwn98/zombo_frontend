@@ -15,7 +15,7 @@ import ProfilePage from "./pages/Profile";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn] = useState(false);
 
   // Add item to cart (uses _id – safe and reliable)
   const addToCart = (item) => {
