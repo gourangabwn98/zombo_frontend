@@ -236,7 +236,7 @@ const cartItemStyle = {
   borderBottom: "1px solid #eee",
   display: "flex",
   alignItems: "center",
-  gap: "15px",
+  // gap: "15px",
 };
 
 const itemImageWrapper = {

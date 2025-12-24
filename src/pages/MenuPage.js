@@ -202,7 +202,7 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
-              width: "100%",
+              width: "85%",
               padding: "16px 16px 16px 50px",
               borderRadius: "16px",
               border: "2px solid #e0e0e0",
