@@ -230,7 +230,7 @@ const OrderPage = ({ clearCart }) => {
 
   return (
     <div style={pageStyle}>
-      <div style={{ maxWidth: "600px", margin: "0 auto", padding: "0 20px" }}>
+      <div style={{ maxWidth: "600px", margin: "0 auto" }}>
         <h1 style={titleStyle}>Complete Your Order</h1>
 
         {error && (
@@ -559,7 +559,7 @@ const itemRowStyle = {
   borderBottom: "1px solid #eee",
 };
 const addressInputStyle = {
-  width: "100%",
+  width: "90%",
   padding: "15px",
   borderRadius: "12px",
   border: "2px solid #ddd",
