@@ -1,0 +1,35 @@
+.menu-page {
+  position: relative;
+
+  background: linear-gradient(
+    135deg,
+    #ffaf7b,
+    /* Soft peachy-orange for warmth */ #d76d77,
+    /* Rich reddish-pink for energy */ #3a1c71
+      /* Deep purple for depth and elegance */
+  );
+}
+
+.cart-link {
+  position: fixed;
+  bottom: 0px;
+
+  width: 100%;
+  text-align: center;
+  background-color: #18834d;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 12px;
+  font-size: 17px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.cart-link:hover {
+  background-color: #185b2a;
+}
+
+.cart-link:active {
+  background-color: #053a03;
+}

@@ -1,0 +1,94 @@
+/* Navbar container */
+.navbar {
+  position: fixed; /* Fixes the navbar at the top of the viewport */
+  top: 0; /* Aligns it to the top */
+  left: 0; /* Aligns it to the left */
+  width: 98%; /* Full width of the viewport */
+  background-color: #e88f46; /* Dark background */
+  padding: 15px 20px; /* Padding for spacing */
+  color: white; /* Text color */
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between title and links */
+  align-items: center; /* Center items vertically */
+  z-index: 1000; /* Ensure it stays above other content */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+/* Navbar brand (logo/title) */
+.navbar h1 {
+  font-size: 24px;
+  color: linear-gradient(135deg, #7bf8ff, #87e076, #96cbe8);
+  margin: 0;
+}
+
+/* Navbar links (for larger screens) */
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Individual navbar link styling */
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar ul li a:hover {
+  color: #ffaf7b; /* Highlight on hover */
+}
+
+/* Hamburger Menu (for mobile) */
+.hamburger {
+  display: none; /* Hidden on large screens */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.navbar-menu {
+  display: none; /* Initially hidden on mobile */
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Show mobile menu when active */
+.navbar-menu.active {
+  display: flex;
+}
+
+/* Responsive Design: Mobile View */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none; /* Hide the normal links */
+  }
+
+  /* Display the hamburger on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-menu {
+    width: 150px;
+  }
+}

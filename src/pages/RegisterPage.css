@@ -1,0 +1,44 @@
+.register-page {
+  display: flex;
+
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 60px;
+  max-width: 900px;
+  background: linear-gradient(
+    135deg,
+    #ffaf7b,
+    /* Soft peachy-orange for warmth */ #d76d77,
+    /* Rich reddish-pink for energy */ #3a1c71
+      /* Deep purple for depth and elegance */
+  );
+  color: white;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #45a049;
+}

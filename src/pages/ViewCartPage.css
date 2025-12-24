@@ -1,0 +1,113 @@
+/* General container for the cart page */
+.view-cart-page {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 60px;
+  max-width: 900px;
+  background: linear-gradient(
+    135deg,
+    #ffaf7b,
+    /* Soft peachy-orange for warmth */ #d76d77,
+    /* Rich reddish-pink for energy */ #3a1c71
+      /* Deep purple for depth and elegance */
+  );
+  color: white; /* Text color for contrast */
+}
+
+/* Payment section */
+.payment-section {
+  position: fixed;
+  bottom: 0;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack items vertically on smaller screens */
+  align-items: center; /* Center items horizontally */
+  margin-top: 20px;
+  padding: 20px;
+  padding-bottom: 0;
+  background: linear-gradient(
+    135deg,
+    #ffaf7b,
+    /* Soft peachy-orange for warmth */ #d76d77,
+    /* Rich reddish-pink for energy */ #3a1c71
+      /* Deep purple for depth and elegance */
+  );
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Total amount text */
+.payment-section h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: #333; /* Dark color for better readability */
+}
+
+/* Payment button styling */
+.payment-button,
+.register-button {
+  background-color: #4caf50; /* Green color for primary actions */
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  min-width: 150px; /* Ensure buttons are adequately sized */
+}
+
+/* Disabled button style */
+.payment-button:disabled,
+.register-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Button hover effect */
+.payment-button:hover:not(:disabled),
+.register-button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .view-cart-page {
+    padding: 10px;
+  }
+
+  .payment-section {
+    flex-direction: column; /* Stack items vertically */
+    /* Stretch buttons to full width */
+  }
+
+  .payment-button,
+  .register-button {
+    width: 100%; /* Full-width buttons on small screens */
+    text-align: center;
+    /* margin-top: 10px; */
+  }
+
+  .payment-section h3 {
+    margin-bottom: 15px; /* Add space below the total amount text */
+  }
+}
+
+.loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}

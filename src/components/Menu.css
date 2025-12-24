@@ -1,0 +1,105 @@
+.menu-container {
+  max-width: 1200px; /* Set a max width for the menu container */
+  margin: 0 auto; /* Center the menu container */
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #fff; /* White background for clean look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  border-radius: 10px;
+}
+
+.menu-container h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.menu-item-image {
+  width: 20%;
+  height: auto;
+  max-width: 200px; /* Optional: Limit the size of the image */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  margin-bottom: 10px; /* Space between the image and the rest of the content */
+}
+
+.menu-item {
+  background: linear-gradient(135deg, #d9dfe3, #eac48b);
+  /* background-color: #f9f9f9; */
+  display: flex;
+  flex-direction: row; /* Stack items vertically */
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(234, 10, 10, 0.1);
+  justify-content: space-between;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-controls button {
+  padding: 5px 10px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.quantity-controls button:hover {
+  background-color: #45a049;
+}
+
+.menu-item h3 {
+  margin: 0;
+}
+
+.menu-item p {
+  margin: 5px 0;
+}
+
+.search-filter-section {
+  display: flex;
+  justify-content: space-between; /* Aligns search box and filter evenly */
+  align-items: center; /* Vertically aligns items */
+  gap: 20px; /* Adds space between the input and select elements */
+  margin-bottom: 20px; /* Adds spacing between this section and the items below */
+  width: 100%;
+  max-width: 800px; /* Limits the width of the section */
+}
+
+.search-box {
+  flex-grow: 2; /* Makes the search box expand more than the filter */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Ensures the search box takes up all available width */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-filter {
+  flex-grow: 1; /* Category filter takes less space compared to the search box */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .search-filter-section {
+    flex-direction: column; /* Stack the input and select elements vertically on smaller screens */
+    gap: 10px; /* Reduce the gap on smaller screens */
+  }
+
+  .search-box,
+  .category-filter {
+    width: 100%; /* Both take full width on mobile */
+  }
+}

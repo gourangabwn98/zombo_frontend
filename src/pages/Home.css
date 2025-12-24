@@ -1,0 +1,90 @@
+/* Container styling */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
+  ); /* Matching background */
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+}
+
+/* Heading style with animation */
+.home h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  animation: slideIn 1.2s ease-out; /* Slide-in animation */
+}
+
+/* Paragraph style */
+.home p {
+  font-size: 24px;
+  margin-bottom: 50px;
+  max-width: 600px;
+  line-height: 1.5;
+  animation: slideIn 1.5s ease-out; /* Slide-in animation */
+}
+
+/* QR Code (optional) */
+.qr-code {
+  width: 150px;
+  height: 150px;
+  margin-right: 90px;
+  background-color: white; /* Just a placeholder for the actual QR code image */
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 6px 18px rgba(55, 197, 12, 0.6);
+}
+
+/* Hover effect for QR code */
+.qr-code:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Keyframe for fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframe for slide-in effect */
+@keyframes slideIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 36px;
+  }
+
+  .home p {
+    font-size: 18px;
+  }
+
+  .qr-code {
+    width: 120px;
+    height: 120px;
+  }
+}
