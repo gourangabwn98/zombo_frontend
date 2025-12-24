@@ -17,13 +17,14 @@ const OrderPage = ({ clearCart }) => {
   const [orderPlaced, setOrderPlaced] = useState(false);
   const [error, setError] = useState("");
 
-  const deliveryCharge = totalAmount > 200 ? 0 : 40;
+  const deliveryCharge = totalAmount > 200 ? 0 : 0;
   const finalTotal = totalAmount + deliveryCharge - discount;
 
   const applyCoupon = () => {
     const code = coupon.trim().toUpperCase();
-    if (code === "BALAJI50") {
-      setDiscount(50);
+    if (code === "CHRISTMAS30" && totalAmount >= 300) {
+      // setDiscount(30);
+      setDiscount(totalAmount * 0.3);
       alert("Coupon applied! ₹50 off");
     } else if (code === "FREEDELIVERY") {
       setDiscount(deliveryCharge);
@@ -295,8 +296,8 @@ const OrderPage = ({ clearCart }) => {
               </button>
             </div>
             <p style={{ fontSize: "13px", color: "#666", marginTop: "10px" }}>
-              Try: <strong>CHRISTMAS30</strong> (30% off) or{" "}
-              {/* <strong>FREEDELIVERY</strong> */}
+              Try: <strong>CHRISTMAS30</strong> (30% off on orders above ₹300)
+              or {/* <strong>FREEDELIVERY</strong> */}
             </p>
           </div>
 
