@@ -1,21 +1,21 @@
-// components/Navbar.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCart, Menu, X } from "lucide-react";
 
 const Navbar = ({ cartCount = 0 }) => {
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu only
+  const [isOpen, setIsOpen] = useState(false);
 
-  // Get user from localStorage
   const userData = JSON.parse(localStorage.getItem("zombo_user"));
   const isLoggedIn = !!userData;
   const userInitial = userData?.name
     ? userData.name.charAt(0).toUpperCase()
     : "?";
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <>
-      {/* Main Navbar */}
+      {/* Main Navbar - Fixed Top */}
       <nav
         style={{
           position: "fixed",
@@ -28,7 +28,7 @@ const Navbar = ({ cartCount = 0 }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 4%",
+          padding: "0 5%",
           zIndex: 1000,
           boxShadow: "0 8px 32px rgba(80, 15, 137, 0.3)",
         }}
@@ -40,23 +40,18 @@ const Navbar = ({ cartCount = 0 }) => {
             textDecoration: "none",
             display: "flex",
             alignItems: "center",
-            gap: "16px",
+            gap: "12px",
           }}
         >
           <img
             src="/assets/images/zombo-logo.png"
-            alt="ZOMBO Logo"
-            style={{
-              height: "60px",
-              width: "auto",
-              objectFit: "contain",
-            }}
+            alt="ZOMBO"
+            style={{ height: "55px", width: "auto", objectFit: "contain" }}
           />
           <span
             style={{
-              fontSize: "32px",
+              fontSize: "30px",
               fontWeight: "900",
-              letterSpacing: "1px",
               background:
                 "linear-gradient(135deg, #e07e38ff, #f1954bff, #e0c74dff)",
               WebkitBackgroundClip: "text",
@@ -69,11 +64,7 @@ const Navbar = ({ cartCount = 0 }) => {
 
         {/* Desktop Menu */}
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "40px",
-          }}
+          style={{ display: "flex", alignItems: "center", gap: "36px" }}
           className="desktop-menu"
         >
           <Link to="/" style={navLinkStyle}>
@@ -86,24 +77,18 @@ const Navbar = ({ cartCount = 0 }) => {
             Orders
           </Link>
 
-          {/* Cart + User Avatar */}
-          <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-            {/* Cart */}
+          <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
             <Link
               to="/view-cart"
               style={{ position: "relative", textDecoration: "none" }}
             >
-              <ShoppingCart size={28} color="white" strokeWidth={2.5} />
+              <ShoppingCart size={26} color="white" strokeWidth={2.5} />
               {cartCount > 0 && <span style={cartBadgeStyle}>{cartCount}</span>}
             </Link>
 
-            {/* User Avatar - Click to go to Profile Page */}
             {isLoggedIn && (
-              <Link to="/profile" style={{ textDecoration: "none" }}>
-                <div
-                  style={avatarStyle}
-                  title={`Hi, ${userData.name}! Click to view profile`}
-                >
+              <Link to="/profile">
+                <div style={avatarStyle} title={`Hi, ${userData.name}!`}>
                   {userInitial}
                 </div>
               </Link>
@@ -118,84 +103,77 @@ const Navbar = ({ cartCount = 0 }) => {
           className="mobile-toggle"
         >
           {isOpen ? (
-            <X size={32} color="white" />
+            <X size={30} color="white" />
           ) : (
-            <Menu size={32} color="white" />
+            <Menu size={30} color="white" />
           )}
         </button>
       </nav>
 
-      {/* Mobile Slide-in Menu */}
+      {/* Mobile Drawer */}
       {isOpen && (
         <>
-          <div style={mobileBackdrop} onClick={() => setIsOpen(false)} />
-
+          <div style={mobileBackdrop} onClick={closeMenu} />
           <div style={mobileMenuStyle}>
-            {/* User Info in Mobile */}
+            {/* User Section */}
             {isLoggedIn && (
-              <div style={{ textAlign: "center", marginBottom: "40px" }}>
-                <Link to="/profile" onClick={() => setIsOpen(false)}>
+              <div
+                style={{
+                  textAlign: "center",
+                  marginBottom: "30px",
+                  paddingTop: "20px",
+                }}
+              >
+                <Link to="/profile" onClick={closeMenu}>
                   <div style={mobileAvatarStyle}>{userInitial}</div>
                 </Link>
                 <p
                   style={{
                     color: "white",
-                    fontSize: "22px",
+                    fontSize: "20px",
                     fontWeight: "600",
-                    marginTop: "12px",
+                    margin: "12px 0 8px",
                   }}
                 >
-                  {userData.name}
+                  Hi, {userData.name}!
                 </p>
                 <Link
                   to="/profile"
-                  onClick={() => setIsOpen(false)}
+                  onClick={closeMenu}
                   style={{
                     color: "#ffe066",
-                    fontSize: "16px",
+                    fontSize: "15px",
                     textDecoration: "underline",
                   }}
                 >
-                  View Profile
+                  View Profile →
                 </Link>
               </div>
             )}
 
+            {/* Links */}
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "30px" }}
+              style={{ display: "flex", flexDirection: "column", gap: "20px" }}
             >
-              <Link
-                to="/"
-                onClick={() => setIsOpen(false)}
-                style={mobileLinkStyle}
-              >
+              <Link to="/" onClick={closeMenu} style={mobileLinkStyle}>
                 Home
               </Link>
-              <Link
-                to="/menu"
-                onClick={() => setIsOpen(false)}
-                style={mobileLinkStyle}
-              >
+              <Link to="/menu" onClick={closeMenu} style={mobileLinkStyle}>
                 Menu
               </Link>
               <Link
                 to="/ordershistory"
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
                 style={mobileLinkStyle}
               >
                 Orders
               </Link>
 
-              <Link
-                to="/view-cart"
-                onClick={() => setIsOpen(false)}
-                style={mobileCartStyle}
-              >
-                <ShoppingCart size={32} />
-                View Cart ({cartCount})
+              <Link to="/view-cart" onClick={closeMenu} style={mobileCartStyle}>
+                <ShoppingCart size={28} />
+                View Cart {cartCount > 0 && `(${cartCount})`}
               </Link>
 
-              {/* Logout in Mobile */}
               {isLoggedIn && (
                 <button
                   onClick={() => {
@@ -212,7 +190,7 @@ const Navbar = ({ cartCount = 0 }) => {
         </>
       )}
 
-      {/* CSS Animations & Responsive */}
+      {/* Responsive CSS */}
       <style jsx>{`
         @keyframes slideIn {
           from {
@@ -228,13 +206,14 @@ const Navbar = ({ cartCount = 0 }) => {
             box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
           }
           70% {
-            box-shadow: 0 0 0 12px rgba(255, 71, 87, 0);
+            box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
           }
           100% {
             box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
           }
         }
 
+        /* Hide desktop on mobile, show hamburger */
         @media (max-width: 768px) {
           .desktop-menu {
             display: none !important;
@@ -243,12 +222,32 @@ const Navbar = ({ cartCount = 0 }) => {
             display: block !important;
           }
         }
+
+        @media (min-width: 769px) {
+          .mobile-toggle {
+            display: none !important;
+          }
+        }
+
+        /* Extra small phones */
+        @media (max-width: 480px) {
+          nav {
+            padding: 0 4%;
+            height: 65px;
+          }
+          nav img {
+            height: 48px;
+          }
+          nav span {
+            font-size: 26px;
+          }
+        }
       `}</style>
     </>
   );
 };
 
-// Styles
+// Styles (unchanged but slightly refined)
 const navLinkStyle = {
   color: "white",
   textDecoration: "none",
@@ -259,31 +258,32 @@ const navLinkStyle = {
 
 const cartBadgeStyle = {
   position: "absolute",
-  top: "-10px",
-  right: "-12px",
+  top: "-8px",
+  right: "-10px",
   background: "#ff4757",
   color: "white",
-  fontSize: "13px",
+  fontSize: "12px",
   fontWeight: "bold",
-  width: "24px",
-  height: "24px",
+  minWidth: "20px",
+  height: "20px",
   borderRadius: "50%",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  padding: "0 4px",
   animation: "pulse 2s infinite",
 };
 
 const avatarStyle = {
-  width: "44px",
-  height: "44px",
+  width: "42px",
+  height: "42px",
   borderRadius: "50%",
   background: "linear-gradient(135deg, #ffe066, #ff6b6b)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   color: "white",
-  fontSize: "20px",
+  fontSize: "19px",
   fontWeight: "bold",
   boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
   cursor: "pointer",
@@ -298,12 +298,9 @@ const mobileToggleStyle = {
 
 const mobileBackdrop = {
   position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  background: "rgba(0,0,0,0.6)",
-  backdropFilter: "blur(8px)",
+  inset: 0,
+  background: "rgba(0,0,0,0.7)",
+  backdropFilter: "blur(10px)",
   zIndex: 999,
 };
 
@@ -311,61 +308,52 @@ const mobileMenuStyle = {
   position: "fixed",
   top: 0,
   right: 0,
-  width: "300px",
+  width: "80%",
+  maxWidth: "320px",
   height: "100vh",
   background: "linear-gradient(135deg, #8c5fc3ff, #500f89ff)",
   zIndex: 1000,
-  padding: "100px 30px 40px",
-  boxShadow: "-10px 0 40px rgba(0,0,0,0.4)",
+  padding: "80px 30px 40px",
+  boxShadow: "-15px 0 50px rgba(0,0,0,0.5)",
   animation: "slideIn 0.4s ease-out",
+  overflowY: "auto",
 };
 
 const mobileAvatarStyle = {
-  width: "80px",
-  height: "80px",
-  borderRadius: "50%",
-  background: "linear-gradient(135deg, #ffe066, #ff6b6b)",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "white",
-  fontSize: "36px",
-  fontWeight: "bold",
-  margin: "0 auto 12px",
-  boxShadow: "0 8px 25px rgba(0,0,0,0.4)",
-  cursor: "pointer",
+  ...avatarStyle,
+  width: "90px",
+  height: "90px",
+  fontSize: "38px",
+  margin: "0 auto",
 };
 
 const mobileLinkStyle = {
   color: "white",
-  fontSize: "24px",
+  fontSize: "22px",
   fontWeight: "700",
   textDecoration: "none",
-  padding: "14px 0",
-  borderBottom: "2px solid rgba(255,255,255,0.3)",
+  padding: "16px 0",
+  borderBottom: "1px solid rgba(255,255,255,0.2)",
 };
 
 const mobileCartStyle = {
-  color: "white",
-  textDecoration: "none",
+  ...mobileLinkStyle,
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  gap: "14px",
-  fontSize: "22px",
-  fontWeight: "bold",
-  padding: "20px",
-  background: "rgba(255,255,255,0.2)",
-  borderRadius: "20px",
+  gap: "16px",
+  background: "rgba(255,255,255,0.15)",
+  borderRadius: "18px",
+  borderBottom: "none",
 };
 
 const mobileLogoutStyle = {
-  marginTop: "40px",
-  padding: "16px",
+  marginTop: "50px",
+  padding: "18px",
   background: "#ff4757",
   color: "white",
   border: "none",
-  borderRadius: "16px",
+  borderRadius: "18px",
   fontWeight: "bold",
   fontSize: "18px",
   cursor: "pointer",
