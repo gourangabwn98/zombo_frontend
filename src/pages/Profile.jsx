@@ -1,7 +1,7 @@
 // pages/Profile.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Mail, Phone, User, MapPin, LogOut } from "lucide-react";
+import { Mail, Phone, User, LogOut } from "lucide-react";
 
 const ProfilePage = () => {
   const navigate = useNavigate();

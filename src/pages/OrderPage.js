@@ -145,12 +145,12 @@ const OrderPage = ({ clearCart }) => {
   const isBeforeLaunch = today < launchDate;
 
   // Optional: Format today's date for display (Indian format)
-  const formattedToday = today.toLocaleDateString("en-IN", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
+  // const formattedToday = today.toLocaleDateString("en-IN", {
+  //   weekday: "long",
+  //   day: "numeric",
+  //   month: "long",
+  //   year: "numeric",
+  // });
 
   // Optional: Countdown days
   const daysUntilLaunch = Math.ceil(
