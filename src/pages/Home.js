@@ -105,7 +105,7 @@ const Home = () => {
               fontWeight: "500",
             }}
           >
-            Made for Students • By Students
+            Made for Students
           </p>
         </div>
 
