@@ -1,13 +1,13 @@
-// pages/Home.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  QrCode,
-  Clock,
-  Truck,
   Percent,
-  Utensils,
+  Truck,
+  Clock,
   IndianRupee,
+  Utensils,
+  Gift,
+  Sparkles,
 } from "lucide-react";
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
     <div
       style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        background: "linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%)", // Deeper festive purple-blue for Christmas
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -27,31 +27,55 @@ const Home = () => {
         overflow: "hidden",
       }}
     >
-      {/* Floating Background Orbs */}
+      {/* Festive Floating Elements (like soft snow orbs) */}
       <div
         style={{
           position: "absolute",
-          top: "-150px",
-          right: "-150px",
+          top: "-100px",
+          right: "-100px",
+          width: "400px",
+          height: "400px",
+          background: "rgba(255,255,255,0.1)",
+          borderRadius: "50%",
+          animation: "float 25s infinite linear",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          bottom: "-150px",
+          left: "-150px",
           width: "500px",
           height: "500px",
           background: "rgba(255,255,255,0.08)",
           borderRadius: "50%",
-          animation: "float 20s infinite linear",
+          animation: "float 35s infinite reverse linear",
         }}
       />
       <div
         style={{
           position: "absolute",
-          bottom: "-200px",
-          left: "-200px",
-          width: "600px",
-          height: "600px",
-          background: "rgba(255,255,255,0.06)",
-          borderRadius: "50%",
-          animation: "float 30s infinite reverse linear",
+          top: "20%",
+          left: "10%",
+          fontSize: "60px",
+          opacity: 0.15,
+          animation: "float 20s infinite",
         }}
-      />
+      >
+        <Sparkles size={80} />
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20%",
+          right: "15%",
+          fontSize: "60px",
+          opacity: 0.15,
+          animation: "float 28s infinite reverse",
+        }}
+      >
+        <Gift size={80} />
+      </div>
 
       {/* Main Card */}
       <div
@@ -60,7 +84,7 @@ const Home = () => {
           backdropFilter: "blur(20px)",
           borderRadius: "32px",
           padding: "50px 30px",
-          maxWidth: "560px",
+          maxWidth: "620px",
           width: "100%",
           boxShadow: "0 30px 80px rgba(0,0,0,0.4)",
           border: "1px solid rgba(255,255,255,0.25)",
@@ -71,54 +95,152 @@ const Home = () => {
         <div style={{ marginBottom: "20px" }}>
           <div
             style={{
-              width: 90,
-              height: 90,
-              background: "linear-gradient(135deg, #ff6b6b, #feca57)",
+              width: 100,
+              height: 100,
+              background: "linear-gradient(135deg, #ef4444, #22c55e)", // Red-green Christmas colors
               borderRadius: "50%",
               margin: "0 auto 20px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 10px 30px rgba(255,107,107,0.4)",
+              boxShadow: "0 10px 30px rgba(239,68,68,0.4)",
             }}
           >
-            <Utensils size={48} color="white" />
+            <Utensils size={56} color="white" />
           </div>
           <h1
             style={{
-              fontSize: "52px",
+              fontSize: "56px",
               margin: "0 0 12px",
               fontWeight: "900",
-              background: "linear-gradient(135deg, #ffe066, #ff6b6b, #feca57)",
+              background: "linear-gradient(135deg, #fefce8, #ef4444, #22c55e)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              letterSpacing: "1px",
+              letterSpacing: "2px",
             }}
           >
             ZOMBO
           </h1>
           <p
             style={{
-              fontSize: "20px",
+              fontSize: "22px",
               margin: "0",
               opacity: 0.9,
               fontWeight: "500",
             }}
           >
-            Made for Students
+            Made for Students • Launching This Christmas!
           </p>
         </div>
 
-        {/* Tagline */}
+        {/* Merry Christmas Greeting */}
         <h2
           style={{
+            fontSize: "32px",
+            margin: "30px 0 10px",
+            fontWeight: "bold",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "12px",
+          }}
+        >
+          <Gift size={40} color="#fbbf24" />
+          Merry Christmas!
+          <Sparkles size={40} color="#fbbf24" />
+        </h2>
+
+        {/* Tagline */}
+        <h3
+          style={{
             fontSize: "28px",
-            margin: "30px 0 20px",
+            margin: "20px 0 30px",
             fontWeight: "bold",
           }}
         >
-          Combo Meals Starting at Just ₹49!
-        </h2>
+          Festive Combo Meals Starting at Just ₹49!
+        </h3>
+
+        {/* Special Launch Offer */}
+        <div
+          style={{
+            background: "rgba(239,68,68,0.3)",
+            padding: "20px",
+            borderRadius: "20px",
+            margin: "20px 0",
+            border: "2px dashed #fbbf24",
+          }}
+        >
+          <p style={{ margin: 0, fontSize: "18px", fontWeight: "bold" }}>
+            🎄 Christmas Launch Special:{" "}
+            <span style={{ color: "#fbbf24" }}>EXTRA 30% OFF</span> on First
+            Order Today!
+          </p>
+        </div>
+
+        {/* Food Images Carousel (Makes it super interesting!) */}
+        <div style={{ margin: "40px 0", fontSize: "14px", opacity: 0.9 }}>
+          Treat yourself this Christmas – check out our combos!
+        </div>
+        <div
+          style={{
+            display: "flex",
+            overflowX: "auto",
+            gap: "16px",
+            padding: "10px 0",
+            scrollbarWidth: "none",
+          }}
+        >
+          {/* Replace with your actual food images later; these are festive examples */}
+          <img
+            src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80"
+            alt="Festive Christmas Combo"
+            style={{
+              borderRadius: "20px",
+              width: "280px",
+              height: "180px",
+              objectFit: "cover",
+              flexShrink: 0,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            }}
+          />
+          <img
+            src="https://images.unsplash.com/photo-1516714435131-44d6b64dc6a2?w=400&q=80"
+            alt="Delicious Holiday Meals"
+            style={{
+              borderRadius: "20px",
+              width: "280px",
+              height: "180px",
+              objectFit: "cover",
+              flexShrink: 0,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            }}
+          />
+          <img
+            src="https://img-cdn.publive.online/fit-in/1280x720/filters:format(webp)/elle-india/media/post_attachments/wp-content/uploads/2021/12/feature-8.jpg"
+            alt="Christmas Special Combos"
+            style={{
+              borderRadius: "20px",
+              width: "280px",
+              height: "180px",
+              objectFit: "cover",
+              flexShrink: 0,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            }}
+          />
+          <img
+            src="https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/2025-09/Top%20Rajasthani%20Dishes%20to%20Try%20This%20Festive%20Season.jpg"
+            alt="Pocket-Friendly Festive Food"
+            style={{
+              borderRadius: "20px",
+              width: "280px",
+              height: "180px",
+              objectFit: "cover",
+              flexShrink: 0,
+              boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
+            }}
+          />
+        </div>
 
         {/* Offers Grid */}
         <div
@@ -126,7 +248,7 @@ const Home = () => {
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "16px",
-            margin: "30px 0",
+            margin: "40px 0",
           }}
         >
           <div
@@ -138,13 +260,12 @@ const Home = () => {
               border: "1px solid rgba(255,255,255,0.3)",
             }}
           >
-            <Percent size={36} color="#ffe066" />
-            <h3 style={{ margin: "12px 0 8px", fontSize: "18px" }}>50% OFF</h3>
+            <Percent size={36} color="#fbbf24" />
+            <h3 style={{ margin: "12px 0 8px", fontSize: "18px" }}>20% OFF</h3>
             <p style={{ margin: 0, fontSize: "14px", opacity: 0.9 }}>
               On Your First Order!
             </p>
           </div>
-
           <div
             style={{
               background: "rgba(255,255,255,0.2)",
@@ -167,11 +288,11 @@ const Home = () => {
         {/* Delivery Charge Info */}
         <div
           style={{
-            background: "rgba(255,107,107,0.25)",
+            background: "rgba(239,68,68,0.25)",
             padding: "16px",
             borderRadius: "16px",
             margin: "20px 0",
-            border: "1px dashed rgba(255,107,107,0.5)",
+            border: "1px dashed rgba(239,68,68,0.5)",
           }}
         >
           <p style={{ margin: 0, fontSize: "15px" }}>
@@ -179,59 +300,16 @@ const Home = () => {
           </p>
         </div>
 
-        {/* QR Code */}
-        <div
-          style={{
-            margin: "40px auto",
-            width: "240px",
-            height: "240px",
-            background: "white",
-            borderRadius: "28px",
-            padding: "16px",
-            boxShadow: "0 20px 50px rgba(0,0,0,0.4)",
-            transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-            cursor: "pointer",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "translateY(-12px) scale(1.06)";
-            e.currentTarget.style.boxShadow = "0 30px 70px rgba(0,0,0,0.5)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0) scale(1)";
-            e.currentTarget.style.boxShadow = "0 20px 50px rgba(0,0,0,0.4)";
-          }}
-        >
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://your-zombo-app.com/menu"
-            alt="Scan to Order"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              borderRadius: "18px",
-            }}
-          />
-        </div>
-
-        <p
-          style={{ fontSize: "19px", margin: "20px 0 10px", fontWeight: "600" }}
-        >
-          Scan with Phone Camera
-        </p>
-        <p style={{ opacity: 0.9, margin: "0 0 40px" }}>
-          Instant menu • No app download needed
-        </p>
-
         {/* CTA Buttons */}
         <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <Link
             to="/menu"
             style={{
-              padding: "18px",
+              padding: "20px",
               background: "white",
-              color: "#667eea",
+              color: "#1e3a8a",
               borderRadius: "50px",
-              fontSize: "20px",
+              fontSize: "22px",
               fontWeight: "bold",
               textDecoration: "none",
               boxShadow: "0 12px 35px rgba(0,0,0,0.3)",
@@ -242,24 +320,24 @@ const Home = () => {
             }
             onMouseLeave={(e) => (e.target.style.transform = "translateY(0)")}
           >
-            View Menu & Order Now
+            🎅 View Menu & Order Now – Christmas Treats Await!
           </Link>
 
           <div
             style={{
               display: "flex",
               justifyContent: "center",
-              gap: "20px",
+              gap: "30px",
               marginTop: "10px",
-              fontSize: "15px",
+              fontSize: "16px",
               opacity: 0.9,
             }}
           >
-            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <Clock size={20} /> Lunch & Dinner
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Clock size={22} /> Lunch & Dinner
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <IndianRupee size={20} /> Pocket-Friendly
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <IndianRupee size={22} /> Super Pocket-Friendly
             </span>
           </div>
         </div>
@@ -282,7 +360,7 @@ const Home = () => {
             transform: translate(0, 0) rotate(0deg);
           }
           50% {
-            transform: translate(60px, -60px) rotate(180deg);
+            transform: translate(50px, -50px) rotate(180deg);
           }
           100% {
             transform: translate(0, 0) rotate(360deg);
@@ -290,10 +368,15 @@ const Home = () => {
         }
         @media (max-width: 480px) {
           h1 {
-            font-size: 42px !important;
+            font-size: 46px !important;
           }
-          h2 {
+          h2,
+          h3 {
             font-size: 24px !important;
+          }
+          img {
+            width: 240px !important;
+            height: 160px !important;
           }
         }
       `}</style>

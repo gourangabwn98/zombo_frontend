@@ -1,7 +1,7 @@
 // pages/OrderPage.jsx
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { MapPin, CreditCard, CheckCircle, Truck } from "lucide-react";
+import { MapPin, CreditCard, CheckCircle, Truck, Gift } from "lucide-react";
 
 const API_BASE_URL = "https://zombo.onrender.com"; // Change to production URL later
 
@@ -139,6 +139,23 @@ const OrderPage = ({ clearCart }) => {
       </div>
     );
   }
+  // Add this at the top of your component (inside the functional component)
+  const launchDate = new Date("2025-12-25"); // Your official launch date
+  const today = new Date();
+  const isBeforeLaunch = today < launchDate;
+
+  // Optional: Format today's date for display (Indian format)
+  const formattedToday = today.toLocaleDateString("en-IN", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  // Optional: Countdown days
+  const daysUntilLaunch = Math.ceil(
+    (launchDate - today) / (1000 * 60 * 60 * 24)
+  );
 
   return (
     <div style={pageStyle}>
@@ -278,13 +295,13 @@ const OrderPage = ({ clearCart }) => {
               </button>
             </div>
             <p style={{ fontSize: "13px", color: "#666", marginTop: "10px" }}>
-              Try: <strong>BALAJI50</strong> (₹50 off) or{" "}
-              <strong>FREEDELIVERY</strong>
+              Try: <strong>CHRISTMAS30</strong> (30% off) or{" "}
+              {/* <strong>FREEDELIVERY</strong> */}
             </p>
           </div>
 
           {/* Place Order Button */}
-          <div style={footerStyle}>
+          {/* <div style={footerStyle}>
             <button
               onClick={handlePlaceOrder}
               disabled={
@@ -296,6 +313,70 @@ const OrderPage = ({ clearCart }) => {
             >
               {placingOrder ? (
                 "Placing Order..."
+              ) : (
+                <>
+                  <CreditCard size={24} />
+                  Place Order • ₹{finalTotal}
+                </>
+              )}
+            </button>
+          </div> */}
+          <div style={footerStyle}>
+            {/* Christmas Countdown / Launch Message */}
+            {isBeforeLaunch && (
+              <div
+                style={{
+                  background: "rgba(239, 68, 68, 0.25)",
+                  border: "2px dashed #fbbf24",
+                  borderRadius: "16px",
+                  padding: "20px",
+                  marginBottom: "20px",
+                  textAlign: "center",
+                  color: "white",
+                }}
+              >
+                <h3 style={{ margin: "0 0 10px", fontSize: "22px" }}>
+                  🎄 Merry Christmas Eve!
+                </h3>
+                <p
+                  style={{
+                    margin: "0 0 10px",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  ZOMBO Launches Tomorrow – 25th December!
+                </p>
+                <p style={{ margin: 0, opacity: 0.9 }}>
+                  {daysUntilLaunch === 1
+                    ? "Just 1 day to go! Get ready for ₹49 combos 🎅"
+                    : `${daysUntilLaunch} days until delicious meals arrive!`}
+                </p>
+              </div>
+            )}
+
+            <button
+              onClick={handlePlaceOrder}
+              disabled={
+                placingOrder ||
+                cartItems.length === 0 ||
+                !address.trim() ||
+                isBeforeLaunch // This disables ordering before launch
+              }
+              style={placeOrderBtnStyle(
+                placingOrder ||
+                  cartItems.length === 0 ||
+                  !address.trim() ||
+                  isBeforeLaunch
+              )}
+            >
+              {placingOrder ? (
+                "Placing Order..."
+              ) : isBeforeLaunch ? (
+                <>
+                  <Gift size={24} />
+                  Launching Tomorrow!
+                </>
               ) : (
                 <>
                   <CreditCard size={24} />
