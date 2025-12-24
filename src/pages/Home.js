@@ -374,9 +374,11 @@ const Home = () => {
           h3 {
             font-size: 24px !important;
           }
-          img {
+           {
+            /* img {
             width: 240px !important;
             height: 160px !important;
+          } */
           }
         }
       `}</style>
