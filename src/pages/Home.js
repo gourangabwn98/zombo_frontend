@@ -133,6 +133,22 @@ const Home = () => {
           </p>
         </div>
 
+        {/* Service Area Info - Added here prominently */}
+        <div
+          style={{
+            background: "rgba(34, 197, 94, 0.3)",
+            padding: "16px",
+            borderRadius: "16px",
+            margin: "20px 0",
+            border: "2px dashed #22c55e",
+          }}
+        >
+          <p style={{ margin: 0, fontSize: "19px", fontWeight: "bold" }}>
+            📍 Currently serving in{" "}
+            <span style={{ color: "#fbbf24" }}>Burdwan Town</span> only
+          </p>
+        </div>
+
         {/* Merry Christmas Greeting */}
         <h2
           style={{
