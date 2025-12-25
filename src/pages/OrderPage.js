@@ -43,9 +43,9 @@ const OrderPage = ({ clearCart }) => {
 
   const applyCoupon = () => {
     const code = coupon.trim().toUpperCase();
-    if (code === "CHRISTMAS30" && totalAmount >= 300) {
-      setDiscount(totalAmount * 0.3);
-      alert("Coupon applied! 30% off");
+    if (code === "CHRISTMAS50") {
+      setDiscount(totalAmount * 0.5);
+      alert("Coupon applied! 50% off");
     } else if (code === "FREEDELIVERY") {
       setDiscount(deliveryCharge);
       alert("Free delivery applied!");
@@ -459,7 +459,7 @@ const OrderPage = ({ clearCart }) => {
               </button>
             </div>
             <p style={{ fontSize: "13px", color: "#666", marginTop: "10px" }}>
-              Try: <strong>CHRISTMAS30</strong> (30% off above ₹300)
+              Try: <strong>CHRISTMAS50</strong> (50% off)
             </p>
           </div>
 
