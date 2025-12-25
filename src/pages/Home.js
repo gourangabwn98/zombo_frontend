@@ -17,7 +17,7 @@ const Home = () => {
       {/* === PERFECT SEO FOR YOUR LAUNCH === */}
       <SEO
         title="Zombo - Food Delivery Burdwan | Student Combos from ₹49"
-        description="Pocket-friendly food delivery in Burdwan Town for students. Festive Christmas combos starting ₹49, free delivery above ₹200, extra 30% off first order. Order lunch & dinner now!"
+        description="Pocket-friendly food delivery in Burdwan Town for students. Festive Christmas combos starting ₹49, free delivery above ₹200, extra 50% off first order. Order lunch & dinner now!"
         keywords="food delivery burdwan, student food burdwan, cheap food delivery burdwan, zombo food, christmas offers burdwan, combo meals burdwan, online food order burdwan"
       />
 
@@ -197,7 +197,7 @@ const Home = () => {
           >
             <p style={{ margin: 0, fontSize: "18px", fontWeight: "bold" }}>
               🎄 Christmas Launch Special:{" "}
-              <span style={{ color: "#fbbf24" }}>EXTRA 30% OFF</span> on First
+              <span style={{ color: "#fbbf24" }}>EXTRA 50% OFF</span> on First
               Order Today!
             </p>
           </div>
