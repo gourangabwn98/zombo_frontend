@@ -9,12 +9,11 @@ import {
   Gift,
   Sparkles,
 } from "lucide-react";
-import SEO from "../components/SEO"; // Import the SEO component
+import SEO from "../components/SEO";
 
 const Home = () => {
   return (
     <>
-      {/* === PERFECT SEO FOR YOUR LAUNCH === */}
       <SEO
         title="Zombo - Food Delivery Burdwan | Student Combos from ₹49"
         description="Pocket-friendly food delivery in Burdwan Town for students. Festive Christmas combos starting ₹49, free delivery , extra 50% off first order. Order lunch & dinner now!"
@@ -36,7 +35,6 @@ const Home = () => {
           overflow: "hidden",
         }}
       >
-        {/* Your existing beautiful design — keep everything below unchanged */}
         {/* Festive Floating Elements */}
         <div
           style={{
@@ -186,6 +184,7 @@ const Home = () => {
             Festive Combo Meals Starting at Just ₹49!
           </h3>
 
+          {/* 50% OFF Banner */}
           <div
             style={{
               background: "rgba(239,68,68,0.3)",
@@ -195,10 +194,53 @@ const Home = () => {
               border: "2px dashed #fbbf24",
             }}
           >
-            <p style={{ margin: 0, fontSize: "18px", fontWeight: "bold" }}>
+            <p
+              style={{
+                margin: "0 0 10px",
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
               🎄 Christmas Launch Special:{" "}
               <span style={{ color: "#fbbf24" }}>EXTRA 50% OFF</span> on First
               Order Today!
+            </p>
+          </div>
+
+          {/* NEW: Promocode Highlight */}
+          <div
+            style={{
+              background: "linear-gradient(135deg, #dc2626, #f59e0b)",
+              padding: "20px",
+              borderRadius: "20px",
+              margin: "20px 0",
+              boxShadow: "0 10px 30px rgba(220, 38, 38, 0.4)",
+              animation: "pulse 2s infinite",
+            }}
+          >
+            <p
+              style={{
+                margin: "0 0 8px",
+                fontSize: "22px",
+                fontWeight: "900",
+                letterSpacing: "1px",
+              }}
+            >
+              🎅 Use Promo Code:
+            </p>
+            <p
+              style={{
+                margin: 0,
+                fontSize: "36px",
+                fontWeight: "900",
+                letterSpacing: "4px",
+                textShadow: "0 4px 10px rgba(0,0,0,0.5)",
+              }}
+            >
+              CHRISTMAS50
+            </p>
+            <p style={{ margin: "8px 0 0", fontSize: "16px", opacity: 0.95 }}>
+              Get <strong>50% OFF</strong> instantly at checkout!
             </p>
           </div>
 
@@ -288,7 +330,7 @@ const Home = () => {
                 50% OFF
               </h3>
               <p style={{ margin: 0, fontSize: "14px", opacity: 0.9 }}>
-                On Your First Order!
+                With code CHRISTMAS50
               </p>
             </div>
             <div
@@ -304,9 +346,6 @@ const Home = () => {
               <h3 style={{ margin: "12px 0 8px", fontSize: "18px" }}>
                 FREE Delivery
               </h3>
-              {/* <p style={{ margin: 0, fontSize: "13px", opacity: 0.9 }}>
-                Above ₹200
-              </p> */}
             </div>
           </div>
 
@@ -345,7 +384,7 @@ const Home = () => {
               }
               onMouseLeave={(e) => (e.target.style.transform = "translateY(0)")}
             >
-              🎅 View Menu & Order Now – Christmas Treats Await!
+              🎅 View Menu & Order Now – Use CHRISTMAS50 for 50% OFF!
             </Link>
 
             <div
@@ -395,13 +434,22 @@ const Home = () => {
               transform: translate(0, 0) rotate(360deg);
             }
           }
+          @keyframes pulse {
+            0%,
+            100% {
+              transform: scale(1);
+            }
+            50% {
+              transform: scale(1.03);
+            }
+          }
           @media (max-width: 480px) {
             h1 {
-              font-size: 46px !important;
+              fontsize: 46px !important;
             }
             h2,
             h3 {
-              font-size: 24px !important;
+              fontsize: 24px !important;
             }
           }
         `}</style>
