@@ -1,9 +1,9 @@
-// src/pages/MenuPage.jsx
+// pages/MenuPage.jsx
 import React, { useState, useEffect } from "react";
 import { Search, Filter, ShoppingCart, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const API_BASE_URL = "https://zombo.onrender.com";
+const API_BASE_URL = "https://zombo.onrender.com"; // Change in production if needed
 
 const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
   const [menuItems, setMenuItems] = useState([]);
@@ -13,17 +13,23 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
   const [filterCategory, setFilterCategory] = useState("");
   const [showFilter, setShowFilter] = useState(false);
 
+  // Fetch menu items from API
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
         setLoading(true);
         setError("");
+
+        // Build query params
         const params = new URLSearchParams();
         if (searchTerm) params.append("search", searchTerm);
         if (filterCategory) params.append("category", filterCategory);
+
         const url = `${API_BASE_URL}/api/menu?${params.toString()}`;
+
         const res = await fetch(url);
         const json = await res.json();
+
         if (json.success) {
           setMenuItems(json.data);
         } else {
@@ -36,15 +42,18 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
         setLoading(false);
       }
     };
-    fetchMenuItems();
-  }, [searchTerm, filterCategory]);
 
+    fetchMenuItems();
+  }, [searchTerm, filterCategory]); // Re-fetch on search/filter change
+
+  // Calculate cart totals
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
 
+  // Loading State
   if (loading) {
     return (
       <div
@@ -70,6 +79,7 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
           }}
         />
         <p style={{ fontSize: "20px" }}>Loading delicious items...</p>
+
         <style jsx>{`
           @keyframes spin {
             from {
@@ -84,6 +94,7 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
     );
   }
 
+  // Error State
   if (error) {
     return (
       <div
@@ -239,7 +250,7 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
             >
               <option value="">All Items</option>
               <option value="Main Course">Main Course</option>
-              <option value="Combo">Combo</option>
+              {/* Add more categories as they exist in DB */}
             </select>
           </div>
         )}
@@ -260,7 +271,6 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
         ) : (
           menuItems.map((item) => {
             const qty = getQuantity ? getQuantity(item._id) : 0;
-            const isCombo = item.category === "Combo";
 
             return (
               <div
@@ -303,9 +313,6 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
                         height: "100%",
                         objectFit: "cover",
                       }}
-                      onError={(e) => {
-                        e.target.style.display = "none";
-                      }}
                     />
                   </div>
 
@@ -329,7 +336,7 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
                       </h3>
                       <p
                         style={{
-                          margin: "0 0 10px",
+                          margin: "0 0 12px",
                           fontSize: "14.5px",
                           color: "#666",
                           lineHeight: "1.5",
@@ -337,29 +344,6 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
                       >
                         {item.description}
                       </p>
-
-                      {/* Buy 1 Get 1 Badge for Combos */}
-                      {isCombo && (
-                        <div
-                          style={{
-                            display: "inline-flex",
-                            alignItems: "center",
-                            gap: "6px",
-                            background:
-                              "linear-gradient(135deg, #ff6b6b, #ee5a52)",
-                            color: "white",
-                            padding: "6px 12px",
-                            borderRadius: "20px",
-                            fontSize: "12px",
-                            fontWeight: "bold",
-                            marginBottom: "12px",
-                            alignSelf: "flex-start",
-                          }}
-                        >
-                          Buy 1 Get 1 Free
-                        </div>
-                      )}
-
                       <div
                         style={{
                           fontSize: "24px",
