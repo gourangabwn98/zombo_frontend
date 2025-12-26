@@ -44,7 +44,7 @@
 //   const applyCoupon = () => {
 //     const code = coupon.trim().toUpperCase();
 //     if (code === "CHRISTMAS50") {
-//       setDiscount(totalAmount * 0.5);
+//       setDiscount(totalAmount );
 //       alert("Coupon applied! 50% off");
 //     } else if (code === "FREEDELIVERY") {
 //       setDiscount(deliveryCharge);
@@ -458,9 +458,9 @@
 //                 {discount > 0 ? "Applied" : "Apply"}
 //               </button>
 //             </div>
-//             <p style={{ fontSize: "13px", color: "#666", marginTop: "10px" }}>
-//               Try: <strong>CHRISTMAS50</strong> (50% off)
-//             </p>
+//             {/* <p style={{ fontSize: "13px", color: "#666", marginTop: "10px" }}>
+//               Try: <strong></strong> (50% off)
+//             </p> */}
 //           </div>
 
 //           <div style={footerStyle}>
@@ -682,17 +682,14 @@ const OrderPage = ({ clearCart }) => {
   }, []);
 
   const currentHour = currentTime.getHours(); // 0-23 format
-  const isOrderingOpen = currentHour >= 16; // 4 PM or later
+  const isOrderingOpen = currentHour >= 18; // 4 PM or later
 
   const deliveryCharge = totalAmount > 200 ? 0 : 0;
   const finalTotal = totalAmount + deliveryCharge - discount;
 
   const applyCoupon = () => {
     const code = coupon.trim().toUpperCase();
-    if (code === "CHRISTMAS50") {
-      setDiscount(totalAmount * 0.5);
-      alert("Coupon applied! 50% off");
-    } else if (code === "FREEDELIVERY") {
+    if (code === "FREEDELIVERY") {
       setDiscount(deliveryCharge);
       alert("Free delivery applied!");
     } else {
@@ -1110,7 +1107,7 @@ const OrderPage = ({ clearCart }) => {
               </button>
             </div>
             <p style={{ fontSize: "13px", color: "#666", marginTop: "10px" }}>
-              Try: <strong>CHRISTMAS50</strong> (50% off)
+              {/* Try: <strong>CHRISTMAS50</strong> (50% off) */}
             </p>
           </div>
 
@@ -1138,7 +1135,7 @@ const OrderPage = ({ clearCart }) => {
                   />
                 </div>
                 <h3 style={{ margin: "0 0 12px", fontSize: "24px" }}>
-                  🌙 Dinner Orders Start at 4:00 PM!
+                  🌙 Dinner Orders Start at 6:30 PM!
                 </h3>
                 <p
                   style={{
@@ -1161,7 +1158,7 @@ const OrderPage = ({ clearCart }) => {
                   We're prepping the kitchen for your delicious evening feast!
                   🍛✨
                   <br />
-                  Come back after 4 PM to place your dinner order.
+                  Come back after 6.30 PM to place your dinner order.
                 </p>
               </div>
             )}
@@ -1195,7 +1192,7 @@ const OrderPage = ({ clearCart }) => {
               {!isOrderingOpen ? (
                 <>
                   <Clock size={24} />
-                  Orders Open at 4:00 PM
+                  Orders Open at 6:30 PM
                 </>
               ) : placingOrder ? (
                 "Placing Order..."
