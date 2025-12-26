@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <SEO
         title="Zombo - Food Delivery Burdwan | Student Combos from ₹49"
-        description="Pocket-friendly food delivery in Burdwan Town for students. Festive Christmas combos starting ₹49, free delivery , extra 50% off first order. Order lunch & dinner now!"
+        description="Pocket-friendly food delivery in Burdwan Town for students. Festive Christmas combos starting ₹49, free delivery ,. Order lunch & dinner now!"
         keywords="food delivery burdwan, student food burdwan, cheap food delivery burdwan, zombo food, christmas offers burdwan, combo meals burdwan, online food order burdwan"
       />
 
@@ -202,13 +202,13 @@ const Home = () => {
               }}
             >
               🎄 Christmas Launch Special:{" "}
-              <span style={{ color: "#fbbf24" }}>EXTRA 50% OFF</span> on First
+              <span style={{ color: "#fbbf24" }}>Buy 1 Get 1</span> on First
               Order Today!
             </p>
           </div>
 
           {/* NEW: Promocode Highlight */}
-          <div
+          {/* <div
             style={{
               background: "linear-gradient(135deg, #dc2626, #f59e0b)",
               padding: "20px",
@@ -242,7 +242,7 @@ const Home = () => {
             <p style={{ margin: "8px 0 0", fontSize: "16px", opacity: 0.95 }}>
               Get <strong>50% OFF</strong> instantly at checkout!
             </p>
-          </div>
+          </div> */}
 
           {/* Food Images */}
           <div style={{ margin: "40px 0", fontSize: "14px", opacity: 0.9 }}>
@@ -327,11 +327,11 @@ const Home = () => {
             >
               <Percent size={36} color="#fbbf24" />
               <h3 style={{ margin: "12px 0 8px", fontSize: "18px" }}>
-                50% OFF
+                Buy 1 Get 1 Free
               </h3>
-              <p style={{ margin: 0, fontSize: "14px", opacity: 0.9 }}>
+              {/* <p style={{ margin: 0, fontSize: "14px", opacity: 0.9 }}>
                 With code CHRISTMAS50
-              </p>
+              </p> */}
             </div>
             <div
               style={{
@@ -384,7 +384,7 @@ const Home = () => {
               }
               onMouseLeave={(e) => (e.target.style.transform = "translateY(0)")}
             >
-              🎅 View Menu & Order Now – Use CHRISTMAS50 for 50% OFF!
+              🎅 View Menu & Order Now
             </Link>
 
             <div
