@@ -1112,7 +1112,7 @@ const OrderPage = ({ clearCart }) => {
 
           {/* Footer with Time-Based Message */}
           <div style={footerStyle}>
-            {/* Message when ordering is closed (before 4 PM) */}
+            {/* Message when ordering is closed (before 10 AM) */}
             {!isOrderingOpen && (
               <div
                 style={{
@@ -1127,14 +1127,9 @@ const OrderPage = ({ clearCart }) => {
               >
                 <div style={{ marginBottom: "12px" }}>
                   <Sun size={48} color="#fbbf24" />
-                  <Moon
-                    size={32}
-                    color="#6366f1"
-                    style={{ marginLeft: "-16px" }}
-                  />
                 </div>
                 <h3 style={{ margin: "0 0 12px", fontSize: "24px" }}>
-                  🌙 Dinner Orders Start at 6:30 PM!
+                  ☀️ Kitchen Opens at 10:00 AM!
                 </h3>
                 <p
                   style={{
@@ -1154,15 +1149,15 @@ const OrderPage = ({ clearCart }) => {
                   })}
                 </p>
                 <p style={{ margin: 0, opacity: 0.95, fontSize: "16px" }}>
-                  We're prepping the kitchen for your delicious evening feast!
-                  🍛✨
+                  We're firing up the stoves and getting ready to serve you
+                  fresh meals! 🔥🍳
                   <br />
-                  Come back after 6.30 PM to place your dinner order.
+                  Come back after <strong>10:00 AM</strong> to place your order.
                 </p>
               </div>
             )}
 
-            {/* Encouraging message when ordering is open */}
+            {/* Encouraging message when ordering is open (after 10 AM) */}
             {isOrderingOpen &&
               !isPlaceOrderDisabled &&
               address.trim() &&
@@ -1179,7 +1174,7 @@ const OrderPage = ({ clearCart }) => {
                     fontWeight: "bold",
                   }}
                 >
-                  🍴 Kitchen is HOT & Ready! Place your dinner order now!
+                  🍳 Kitchen is OPEN & Ready! Place your order now!
                 </div>
               )}
 
@@ -1191,7 +1186,7 @@ const OrderPage = ({ clearCart }) => {
               {!isOrderingOpen ? (
                 <>
                   <Clock size={24} />
-                  Orders Open at 6:30 PM
+                  Orders Open at 10:00 AM
                 </>
               ) : placingOrder ? (
                 "Placing Order..."
