@@ -104,7 +104,7 @@ const OrderPage = ({ clearCart }) => {
           }
 
           const fullAddress = builtAddress.trim().replace(/,+$/, "");
-          setAddress(`${fullAddress}\n\n📍 Precise Location: ${mapsLink}`);
+          setAddress(`${mapsLink}`);
 
           setLocationLoading(false);
         } catch (err) {
@@ -515,18 +515,16 @@ const OrderPage = ({ clearCart }) => {
               {isBeforeLaunch ? (
                 <>
                   <Gift size={24} />
-                  Launching Tomorrow – 25th Dec!
+                  See you Today – 27th Dec! at 10 am
                 </>
               ) : placingOrder ? (
                 "Placing Order..."
               ) : (
                 <>
                   <CreditCard size={24} />
-                  {true ? (
-                    <>All item Sold out </>
-                  ) : (
-                    <>Place Order • ₹{finalTotal.toFixed(0)}</>
-                  )}
+
+                  <>Place Order • ₹{finalTotal.toFixed(0)}</>
+
                   {/* Place Order • ₹{finalTotal.toFixed(0)} */}
                 </>
               )}
