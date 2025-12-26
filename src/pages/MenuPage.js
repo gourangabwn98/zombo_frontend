@@ -1,6 +1,6 @@
-// pages/MenuPage.jsx
+// src/pages/MenuPage.jsx
 import React, { useState, useEffect } from "react";
-import { Search, Filter, ShoppingCart, Plus, Minus, Gift } from "lucide-react";
+import { Search, Filter, ShoppingCart, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const API_BASE_URL = "https://zombo.onrender.com";
@@ -303,6 +303,9 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
                         height: "100%",
                         objectFit: "cover",
                       }}
+                      onError={(e) => {
+                        e.target.style.display = "none";
+                      }}
                     />
                   </div>
 
@@ -335,7 +338,7 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
                         {item.description}
                       </p>
 
-                      {/* Small Buy 1 Get 1 Badge - Under Description */}
+                      {/* Buy 1 Get 1 Badge for Combos */}
                       {isCombo && (
                         <div
                           style={{
@@ -353,7 +356,6 @@ const MenuPage = ({ addToCart, removeFromCart, getQuantity, cartItems }) => {
                             alignSelf: "flex-start",
                           }}
                         >
-                          <Gift size={14} />
                           Buy 1 Get 1 Free
                         </div>
                       )}
