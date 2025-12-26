@@ -133,7 +133,7 @@ const ViewCartPage = ({
                   {item.name}
                 </h3>
                 <p style={{ margin: 0, color: "#667eea", fontWeight: "bold" }}>
-                  ₹{item.price} each
+                  ₹{item.price}
                 </p>
               </div>
 
