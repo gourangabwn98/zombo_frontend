@@ -644,7 +644,6 @@ import {
   CreditCard,
   CheckCircle,
   Truck,
-  Gift,
   Loader2,
   ExternalLink,
   Clock,
