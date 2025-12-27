@@ -497,7 +497,7 @@ const OrderPage = ({ clearCart }) => {
               </div>
             )}
 
-            <button
+            {/* <button
               onClick={handlePlaceOrder}
               disabled={
                 isBeforeLaunch ||
@@ -525,10 +525,10 @@ const OrderPage = ({ clearCart }) => {
 
                   <>Place Order • ₹{finalTotal.toFixed(0)}</>
 
-                  {/* Place Order • ₹{finalTotal.toFixed(0)} */}
+                 
                 </>
               )}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
