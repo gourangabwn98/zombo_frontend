@@ -103,7 +103,7 @@ const OrderPage = ({ clearCart }) => {
             }`;
           }
 
-          const fullAddress = builtAddress.trim().replace(/,+$/, "");
+          // const fullAddress = builtAddress.trim().replace(/,+$/, "");
           setAddress(`${mapsLink}`);
 
           setLocationLoading(false);
