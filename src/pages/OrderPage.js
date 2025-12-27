@@ -3,10 +3,8 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   MapPin,
-  CreditCard,
   CheckCircle,
   Truck,
-  Gift,
   Loader2,
   ExternalLink,
 } from "lucide-react";
